@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus Playlist & Jam Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        🎵 Campus Jam
+    </div>
+
+    <nav>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#playlist">Playlist</a>
+        <a href="#jams">Jam Tracker</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div>
+        <h1>Campus Playlist & Jam Tracker</h1>
+
+        <p>
+            Collaborate with your campus community,
+            discover music and organize jam sessions.
+        </p>
+
+        <button onclick="scrollToPlaylist()">
+            Explore Playlist
+        </button>
+    </div>
+
+</section>
+
+
+<!-- DASHBOARD -->
+
+<section id="dashboard" class="container">
+
+    <h2>Campus Dashboard</h2>
+
+    <div class="stats">
+
+        <div class="stat-card">
+            <span>🎵</span>
+            <h3 id="songCount">0</h3>
+            <p>Songs</p>
+        </div>
+
+        <div class="stat-card">
+            <span>🎸</span>
+            <h3 id="jamCount">0</h3>
+            <p>Jam Sessions</p>
+        </div>
+
+        <div class="stat-card">
+            <span>👥</span>
+            <h3 id="contributorCount">0</h3>
+            <p>Contributors</p>
+        </div>
+
+        <div class="stat-card">
+            <span>❤️</span>
+            <h3 id="likeCount">0</h3>
+            <p>Total Likes</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PLAYLIST -->
+
+<section id="playlist" class="container">
+
+    <div class="section-heading">
+
+        <div>
+            <h2>🎵 Collaborative Playlist</h2>
+
+            <p>
+                Add your favorite campus songs.
+            </p>
+        </div>
+
+        <button onclick="openSongForm()">
+            + Add Song
+        </button>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search songs, artists or contributors..."
+            onkeyup="displaySongs()"
+        >
+
+    </div>
+
+
+    <!-- SONG FORM -->
+
+    <div id="songForm" class="form-card hidden">
+
+        <h3>Add Song</h3>
+
+        <input
+            type="text"
+            id="songTitle"
+            placeholder="Song title"
+        >
+
+        <input
+            type="text"
+            id="artist"
+            placeholder="Artist name"
+        >
+
+        <input
+            type="text"
+            id="contributor"
+            placeholder="Your name"
+        >
+
+        <select id="genre">
+
+            <option value="">Select Genre</option>
+            <option>Pop</option>
+            <option>Rock</option>
+            <option>Classical</option>
+            <option>Hip Hop</option>
+            <option>EDM</option>
+            <option>Indie</option>
+            <option>Other</option>
+
+        </select>
+
+        <input
+            type="url"
+            id="audioUrl"
+            placeholder="Optional audio URL"
+        >
+
+        <div class="form-buttons">
+
+            <button onclick="addSong()">
+                Add Song
+            </button>
+
+            <button
+                class="cancel"
+                onclick="closeSongForm()"
+            >
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- SONG LIST -->
+
+    <div id="songList" class="song-grid"></div>
+
+</section>
+
+
+<!-- JAM TRACKER -->
+
+<section id="jams" class="container">
+
+    <div class="section-heading">
+
+        <div>
+
+            <h2>🎸 Jam Session Tracker</h2>
+
+            <p>
+                Create and manage campus jam sessions.
+            </p>
+
+        </div>
+
+        <button onclick="openJamForm()">
+            + New Jam
+        </button>
+
+    </div>
+
+
+    <!-- JAM FORM -->
+
+    <div id="jamForm" class="form-card hidden">
+
+        <h3>Create Jam Session</h3>
+
+        <input
+            type="text"
+            id="jamName"
+            placeholder="Jam session name"
+        >
+
+        <input
+            type="text"
+            id="jamHost"
+            placeholder="Host / Organizer"
+        >
+
+        <input
+            type="date"
+            id="jamDate"
+        >
+
+        <input
+            type="time"
+            id="jamTime"
+        >
+
+        <input
+            type="text"
+            id="jamLocation"
+            placeholder="Location"
+        >
+
+        <select id="jamGenre">
+
+            <option value="">Select Genre</option>
+            <option>Rock</option>
+            <option>Pop</option>
+            <option>Classical</option>
+            <option>Jazz</option>
+            <option>Hip Hop</option>
+            <option>EDM</option>
+            <option>Acoustic</option>
+
+        </select>
+
+        <div class="form-buttons">
+
+            <button onclick="addJam()">
+                Create Jam
+            </button>
+
+            <button
+                class="cancel"
+                onclick="closeJamForm()"
+            >
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAM LIST -->
+
+    <div id="jamList" class="jam-grid"></div>
+
+</section>
+
+
+<footer>
+
+    <h3>🎵 Campus Jam</h3>
+
+    <p>
+        Collaborative music platform for students.
+    </p>
+
+    <p>
+        © 2026 Campus Playlist & Jam Tracker
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
